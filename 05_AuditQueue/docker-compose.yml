@@ -49,7 +49,7 @@ services:
     restart: on-failure
 
   auditQueue:
-    build: ./auditQueue
+    build: ./AuditQueue
     image: audit-queue
     container_name: audit-queue
     ports:

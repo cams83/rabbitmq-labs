@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
 COPY ./*.csproj ./
@@ -8,7 +8,7 @@ COPY . .
 RUN dotnet publish -c Release -o /out --no-restore
 
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /out ./
 ENTRYPOINT ["dotnet", "OrderApi.dll"]
