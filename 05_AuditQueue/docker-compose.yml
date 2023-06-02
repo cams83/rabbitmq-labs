@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   rabbitmq:
-    image: rabbitmq:3-management-alpine
+    image: rabbitmq:3.11.17-management-alpine
     hostname: my-rabbit
     container_name: rabbitmq
     volumes:
@@ -40,7 +40,7 @@ services:
       - rabbitmq
 
   mongodb:
-    image: mongo
+    image: mongo:6.0.6-jammy
     container_name: mongodb
     ports:
       - 27017:27017
